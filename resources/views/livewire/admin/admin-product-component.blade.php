@@ -14,7 +14,15 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="shop-title" style="display:inline;">All Products</h3>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="shop-title" style="display:inline;">All Products</h3>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="{{ route('admin.addproduct') }}" class="btn btn-success pull-right">Add New
+                                    Product</a>
+                            </div>
+                        </div>
                     </div>
                     <table class="table table-striped">
                         <thead>
