@@ -18,7 +18,7 @@ class AdminAddProductComponent extends Component
     public $description;
     public $regular_price;
     public $sale_price;
-    public $sku;
+    public $SKU;
     public $stock_status;
     public $featured;
     public $quantity;
@@ -45,7 +45,7 @@ class AdminAddProductComponent extends Component
         $product->description = $this->description;
         $product->regular_price = $this->regular_price;
         $product->sale_price = $this->sale_price;
-        $product->sku = $this->sku;
+        $product->SKU = $this->SKU;
         $product->stock_status = $this->stock_status;
         $product->featured = $this->featured;
         $product->quantity = $this->quantity;
