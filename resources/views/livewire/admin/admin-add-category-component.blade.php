@@ -25,6 +25,9 @@
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Category Name" class="form-control input-md"
                                         wire:model="name" wire:keyup="generateSlug" />
+                                    @error('name')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
@@ -32,6 +35,9 @@
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Category Name" class="form-control input-md"
                                         wire:model="slug" />
+                                    @error('slug')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="form-group">
