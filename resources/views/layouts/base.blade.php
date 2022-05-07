@@ -115,12 +115,12 @@
                                                             href="{{ route('admin.dashboard') }}">Dashboard</a>
                                                     </li>
                                                     <li class="menu-item">
-                                                        <a title="Products"
-                                                            href="{{ route('admin.products') }}">Products</a>
+                                                        <a title="Products" href="{{ route('admin.products') }}">Manage
+                                                            Products</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Categories"
-                                                            href="{{ route('admin.categories') }}">Categories</a>
+                                                            href="{{ route('admin.categories') }}">Manage Categories</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Home Slider"
@@ -134,6 +134,10 @@
                                                     <li class="menu-item">
                                                         <a title="On Sale" href="{{ route('admin.sale') }}">Manage On
                                                             Sale Timer</a>
+                                                    </li>
+                                                    <li class="menu-item">
+                                                        <a title="Coupons" href="{{ route('admin.coupons') }}">Manage
+                                                            Coupons</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a href="{{ route('logout') }}"
