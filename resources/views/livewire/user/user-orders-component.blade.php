@@ -47,6 +47,7 @@
                                     <th class="text-center">Zipcode</th>
                                     <th class="text-center">Status</th>
                                     <th class="text-center">Order Date</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -61,13 +62,16 @@
                                         <td>{{ $order->mobile }}</td>
                                         <td>{{ $order->email }}</td>
                                         <td>{{ $order->zipcode }}</td>
-                                        @if ($order->status == 'ordered')
-                                            <span class="badge badge-warning">Ordered</span>
-                                        @elseif ($order->status == 'delivered')
-                                            <span class="badge badge-success">Delivered</span>
-                                        @elseif ($order->status == 'cancelled')
-                                            <span class="badge badge-danger">Cancelled</span>
-                                        @endif
+                                        <td>
+                                            @if ($order->status == 'ordered')
+                                                <span class="badge badge-warning">Ordered</span>
+                                            @elseif ($order->status == 'delivered')
+                                                <span class="badge badge-success">Delivered</span>
+                                            @elseif ($order->status == 'cancelled')
+                                                <span class="badge badge-danger">Cancelled</span>
+                                            @endif
+                                        </td>
+
                                         <td>{{ $order->created_at }}</td>
                                         <td><a href="{{ route('user.orderdetails', ['order_id' => $order->id]) }}"
                                                 class="btn btn-info btn-sm">Details</a></td>
