@@ -8,6 +8,22 @@
             display: block !important;
         }
 
+        .badge-main {
+            background-color: #7d7d7d !important;
+        }
+
+        .badge-success {
+            background-color: #4caf50 !important;
+        }
+
+        .badge-warning {
+            background-color: #ff9800 !important;
+        }
+
+        .badge-danger {
+            background-color: #f44336 !important;
+        }
+
     </style>
     <div class="container" style="padding: 30px 0;">
         <div class="row">
@@ -45,7 +61,13 @@
                                         <td>{{ $order->mobile }}</td>
                                         <td>{{ $order->email }}</td>
                                         <td>{{ $order->zipcode }}</td>
-                                        <td>{{ $order->status }}</td>
+                                        @if ($order->status == 'ordered')
+                                            <span class="badge badge-warning">Ordered</span>
+                                        @elseif ($order->status == 'delivered')
+                                            <span class="badge badge-success">Delivered</span>
+                                        @elseif ($order->status == 'cancelled')
+                                            <span class="badge badge-danger">Cancelled</span>
+                                        @endif
                                         <td>{{ $order->created_at }}</td>
                                         <td><a href="{{ route('user.orderdetails', ['order_id' => $order->id]) }}"
                                                 class="btn btn-info btn-sm">Details</a></td>

@@ -24,14 +24,53 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="shop-title" style="display:inline;">Ordered Items <span
-                                        class="badge badge-main">ID {{ $order->id }}</span>
-                                    {!! $order_status !!} {!! $transaction_status !!}
-                                </h3>
+                                <h3 class="shop-title" style="display:inline;">Ordered Details</h3>
                             </div>
                             <div class="col-md-6">
                                 <a href="{{ route('admin.orders') }}" class="btn btn-success pull-right">All
                                     Orders</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="padding-bottom: 0px !important;">
+                        <table class="table">
+                            <tr>
+                                <th>Order ID:</th>
+                                <td><span class="badge badge-main">ID {{ $order->id }}</span></td>
+                                <th>Order Date:</th>
+                                <td>{{ $order->created_at }}</td>
+                                <th>Status:</th>
+                                <td>{!! $order_status !!}</td>
+                                @if ($order->status == 'delivered')
+                                    <th style="color:#4caf50">Delivery Date:</th>
+                                    <td>{{ $order->delivered_date }}</td>
+                                @elseif($order->status == 'cancelled')
+                                    <th style="color:#f44336">Cancellation Date:</th>
+                                    <td>{{ $order->canceled_date }}</td>
+                                @endif
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="shop-title" style="display:inline;">Ordered Items
+                                    <span class="badge badge-main">ID {{ $order->id }}</span>
+                                    {!! $order_status !!} {!! $transaction_status !!}
+                                    @if ($order->status == 'ordered')
+                                        <span class="badge badge-warning">{{ $order->created_at }}</span>
+                                    @elseif ($order->status == 'delivered')
+                                        <span class="badge badge-success">{{ $order->created_at }}</span>
+                                    @elseif ($order->status == 'cancelled')
+                                        <span class="badge badge-danger">{{ $order->created_at }}</span>
+                                    @endif
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -54,7 +93,7 @@
                                         <div class="price-field produtc-price">
                                             <p class="price">${{ $item->product->regular_price }}</p>
                                         </div>
-                                        <div class="quantity">
+                                        <div class="price-field quantity">
                                             <h5>{{ $item->quantity }}</h5>
                                         </div>
                                         <div class="price-field sub-total">

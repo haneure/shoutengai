@@ -54,7 +54,7 @@
                                         <div class="price-field produtc-price">
                                             <p class="price">${{ $item->product->regular_price }}</p>
                                         </div>
-                                        <div class="quantity">
+                                        <div class="price-field quantity">
                                             <h5>{{ $item->quantity }}</h5>
                                         </div>
                                         <div class="price-field sub-total">
