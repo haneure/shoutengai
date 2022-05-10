@@ -121,6 +121,11 @@
                             @foreach ($latestproducts as $latestproduct)
                                 <div class="product product-style-2 equal-elem ">
                                     <div class="product-thumnail">
+                                        @if ($latestproduct->sale_price)
+                                            <div class="group-flash" style="margin-left: 50px;">
+                                                <span class="flash-item sale-label">sale</span>
+                                            </div>
+                                        @endif
                                         <a href="{{ route('product.details', ['slug' => $latestproduct->slug]) }}"
                                             title="{{ $latestproduct->name }}">
                                             <figure><img
@@ -140,9 +145,20 @@
                                     <div class="product-info">
                                         <a href="#"
                                             class="product-name"><span>{{ $latestproduct->name }}</span></a>
-                                        <div class="wrap-price"><span
-                                                class="product-price">${{ $latestproduct->regular_price }}</span>
-                                        </div>
+                                        @if ($latestproduct->sale_price)
+                                            <div class="wrap-price"><ins>
+                                                    <p class="product-price">${{ $latestproduct->sale_price }}</p>
+                                                </ins> <del>
+                                                    <p class="product-price">${{ $latestproduct->regular_price }}
+                                                    </p>
+                                                </del>
+                                            </div>
+                                        @else
+                                            <div class="wrap-price"><span
+                                                    class="product-price">${{ $latestproduct->regular_price }}</span>
+                                            </div>
+                                        @endif
+
                                     </div>
                                 </div>
                             @endforeach
@@ -189,6 +205,22 @@
                                 @foreach ($c_products as $c_product)
                                     <div class="product product-style-2 equal-elem ">
                                         <div class="product-thumnail">
+                                            @if ($c_product->sale_price)
+                                                @if ($c_product->created_at == Carbon\Carbon::now())
+                                                    <div class="group-flash" style="margin-left: 50px;">
+                                                        <span class="flash-item sale-label">sale</span>
+                                                    </div>
+                                                @else
+                                                    <div class="group-flash">
+                                                        <span class="flash-item sale-label">sale</span>
+                                                    </div>
+                                                @endif
+                                            @endif
+                                            @if ($c_product->created_at == Carbon\Carbon::now())
+                                                <div class="group-flash">
+                                                    <span class="flash-item new-label">new</span>
+                                                </div>
+                                            @endif
                                             <a href="{{ route('product.details', ['slug' => $c_product->slug]) }}"
                                                 title="{{ $c_product->name }}">
                                                 <figure><img
@@ -200,9 +232,20 @@
                                         <div class="product-info">
                                             <a href="{{ route('product.details', ['slug' => $c_product->slug]) }}"
                                                 class="product-name"><span>{{ $c_product->name }}</span></a>
-                                            <div class="wrap-price"><span
-                                                    class="product-price">${{ $c_product->regular_price }}</span>
-                                            </div>
+
+                                            @if ($c_product->sale_price)
+                                                <div class="wrap-price"><ins>
+                                                        <p class="product-price">${{ $c_product->sale_price }}</p>
+                                                    </ins> <del>
+                                                        <p class="product-price">${{ $c_product->regular_price }}
+                                                        </p>
+                                                    </del>
+                                                </div>
+                                            @else
+                                                <div class="wrap-price"><span
+                                                        class="product-price">${{ $c_product->regular_price }}</span>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
