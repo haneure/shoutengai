@@ -11,7 +11,6 @@
 <body>
     <p>Hi {{ $order->firstname }} {{ $order->lastname }}</p>
     <p>Your order has been successfully placed.</p>
-    <br>
     <p>General Information:</p>
     <br>
     <table>
@@ -28,8 +27,6 @@
         </thead>
         <tbody>
             <tr>
-
-
                 <th>{{ $order->firstname }} {{ $order->lastname }}</th>
                 <th>{{ $order->line1 }}
                     @if ($order->line2)
@@ -89,7 +86,7 @@
         </tbody>
     </table>
     <br>
-    <p>If you see notice mistakes, you can email us from <a href="{{ route('admin.contact') }}">here</a></p>
+    <p>If you notice any mistakes on the information above, you can email us from our <strong>contact us</strong> page.
 </body>
 
 </html>
