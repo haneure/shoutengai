@@ -29,6 +29,18 @@
                                     <img src="{{ asset('assets/images/products') }}/{{ $product->image }}"
                                         alt="{{ $product->name }}" />
                                 </li>
+                                @php
+                                    $images = explode(',', $product->images);
+                                @endphp
+                                @foreach ($images as $image)
+                                    @if ($image)
+                                        <li style="display:flex !important;"
+                                            data-thumb="{{ asset('assets/images/products') }}/{{ $image }}">
+                                            <img src="{{ asset('assets/images/products') }}/{{ $image }}"
+                                                alt="{{ $product->name }}" />
+                                        </li>
+                                    @endif
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -64,8 +76,8 @@
                             {!! $product->short_description !!}
                         </div>
                         <div class="wrap-social">
-                            <a class="link-socail" href="#"><img src="{{ asset('assets/images/social-list.png') }}"
-                                    alt=""></a>
+                            <a class="link-socail" href="#"><img
+                                    src="{{ asset('assets/images/social-list.png') }}" alt=""></a>
                         </div>
                         @if ($product->sale_price > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
                             <div class="wrap-price"><span
