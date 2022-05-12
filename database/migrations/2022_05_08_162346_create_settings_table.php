@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('phone2');
             $table->string('address');
-            $table->string('map');
+            $table->string('map', 500);
             $table->string('twitter');
             $table->string('instagram');
             $table->string('linkedin');
