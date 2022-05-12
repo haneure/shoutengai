@@ -4,6 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Livewire\Component;
 
 class UserOrderDetailsComponent extends Component
@@ -34,6 +35,14 @@ class UserOrderDetailsComponent extends Component
         } else if($order->transation->status == 'pending') {
             return '<span class="badge badge-warning">Pending</span>';
         }
+    }
+
+    public function cancelOrder() {
+        $order = Order::find($this->order_id);
+        $order->status = 'cancelled';
+        $order->canceled_date = DB::raw('CURRENT_TIMESTAMP');
+        $order->save();
+        session()->flash('order_message', 'Order Cancelled Successfully');
     }
 
     public function render()
