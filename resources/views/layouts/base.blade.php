@@ -148,6 +148,10 @@
                                                             href="{{ route('admin.contact') }}">Contact Message</a>
                                                     </li>
                                                     <li class="menu-item">
+                                                        <a title="Settings"
+                                                            href="{{ route('admin.settings') }}">Settings</a>
+                                                    </li>
+                                                    <li class="menu-item">
                                                         <a href="{{ route('logout') }}"
                                                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                                                     </li>
