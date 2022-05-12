@@ -33,7 +33,7 @@
                         <br>{{ $order->line2 }}
                 </th>
                 @endif
-                <th>{{ $order->phone }}</th>
+                <th>{{ $order->mobile }}</th>
                 <th>{{ $order->country }} </th>
                 <th>{{ $order->province }} </th>
                 <th>{{ $order->city }} </th>
@@ -65,28 +65,25 @@
             @endforeach
             <tr>
                 <td colspan="3" style="border-top:1px solid #ccc;"></td>
-                <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">Subtotal:
-                    ${{ $order->subtotal }}</td>
+                <td style="font-size:15px;border-top:1px solid #ccc;">Subtotal:
+                    <strong>${{ $order->subtotal }}</strong></td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td style="font-size:15px;font-weight:bold;">Tax: </td>
-                <td>${{ $order->tax }}</td>
+                <td style="font-size:15px;">Tax: <strong>${{ $order->tax }}</strong></td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td style="font-size:15px;font-weight:bold;">Shipping: </td>
-                <td>Free Shipping</td>
+                <td style="font-size:15px;">Shipping: <strong>Free Shipping</strong></td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td style="font-size:15px;font-weight:bold;">Total: </td>
-                <td>${{ $order->total }}</td>
+                <td style="font-size:15px;">Total: <strong>${{ $order->total }}</strong></td>
             </tr>
         </tbody>
     </table>
     <br>
-    <p>If you notice any mistakes on the information above, you can email us from our <strong>contact us</strong> page.
+    <p>If you notice any mistakes on the information above, you can email us from our <strong><a href="{{ route("contact")) }}">contact us</a></strong> page.
 </body>
 
 </html>
