@@ -36,12 +36,13 @@
                                 </div>
                                 <div class="quantity">
                                     <div class="quantity-input">
-                                        <a class="btn btn-increase" style="margin-left: 7px; margin-right:5px"
-                                            href="#"></a>
+                                        <a class="btn btn-increase" style="margin-left: 7px; margin-right:5px" href="#"
+                                            wire:click.prevent="increaseQuantity(`{{ $item->rowId }}`)"></a>
                                         <input type="text" name="product-quatity"
                                             style="text-align: center;margin-left:5px" value="{{ $item->qty }}"
                                             data-max="120" pattern="[0-9]*">
-                                        <a class="btn btn-reduce" href="#"></a>
+                                        <a class="btn btn-reduce" href="#"
+                                            wire:click.prevent="decreaseQuantity(`{{ $item->rowId }}`)"></a>
                                     </div>
                                 </div>
                                 <div class="price-field sub-total">
