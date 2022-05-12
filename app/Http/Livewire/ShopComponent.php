@@ -34,7 +34,19 @@ class ShopComponent extends Component
 
     public function addToWishlist($product_id, $product_name, $product_price){
         Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        session()->flash('addWishlist', 'Product added to wishlist');
         $this->emitTo('wishlist-count-component', 'refreshComponent');
+    }
+
+    public function removeFromWishlist($product_id){
+        foreach(Cart::instance('wishlist')->content() as $wishlist){
+            if($wishlist->id == $product_id){
+                Cart::instance('wishlist')->remove($wishlist->rowId);
+                session()->flash('removeWishlist', 'Product removed from wishlist');
+                $this->emitTo('wishlist-count-component', 'refreshComponent');
+                return;
+            }
+        }
     }
 
     public function render()

@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/flexslider.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chosen.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/alerts.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/color-01.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet"
@@ -35,6 +36,13 @@
 </head>
 
 <body class="home-page home-01 ">
+    {{-- Alerts --}}
+    @if (Session::has('addWishlist'))
+        <div id="add-to-wishlist">{{ Session::get('addWishlist') }}</div>
+    @endif
+    @if (Session::has('removeWishlist'))
+        <div id="remove-from-wishlist">{{ Session::get('removeWishlist') }}</div>
+    @endif
 
     <!-- mobile menu -->
     <div class="mercado-clone-wrap">
@@ -575,9 +583,33 @@
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdn.tiny.cloud/1/5k5dl1v44wx6b4rv7c0mojta4mebydfwcl1236emxxgx98xx/tinymce/5/tinymce.min.js"
                 referrerpolicy="origin"></script>
+        <script>
+            if (Session::has('addWishlist')) {
+                addToWishlistAlert();
+            } else if (Session::has('removeWishlist')) {
+                removeFromWishlistAlert();
+            }
+
+            function addToWishlistAlert() {
+                var x = document.getElementById("add-to-wishlist");
+                x.className = "show";
+                setTimeout(function() {
+                    x.className = x.className.replace("show", "");
+                }, 10000);
+            }
+
+            function removeFromWishlistAlert() {
+                var x = document.getElementById("remove-from-wishlist");
+                x.className = "show";
+                setTimeout(function() {
+                    x.className = x.className.replace("show", "");
+                }, 10000);
+            }
+        </script>
         @livewireScripts
 
         @stack('scripts')
+
     </body>
 
     </html>

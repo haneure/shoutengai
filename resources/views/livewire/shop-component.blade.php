@@ -1,5 +1,4 @@
 <main id="main" class="main-site left-sidebar">
-
     <div class="container">
 
         <div class="wrap-breadcrumb">
@@ -68,10 +67,12 @@
                     .product-wish .fa {
                         color: #cbcbcb;
                         font-size: 32px;
+                        transition: transform .2s;
                     }
 
                     .product-wish .fa:hover {
                         color: #f00;
+                        transform: scale(1.1);
                     }
 
                     .fill-heart {
@@ -79,8 +80,8 @@
                     }
 
                 </style>
-                <div class="row">
 
+                <div class="row">
                     <ul class="product-list grid-products equal-container">
                         @php
                             $wishlist = Cart::instance('wishlist')
@@ -109,7 +110,9 @@
                                             To Cart</a>
                                         <div class="product-wish">
                                             @if ($wishlist->contains($product->id))
-                                                <a href="#"><i class="fa fa-heart fill-heart"></i></a>
+                                                <a href="#"
+                                                    wire:click.prevent="removeFromWishlist({{ $product->id }})"><i
+                                                        class="fa fa-heart fill-heart"></i></a>
                                             @else
                                                 <a href="#"
                                                     wire:click.prevent="addToWishlist({{ $product->id }}, '{{ $product->name }}', {{ $product->regular_price }})"><i
