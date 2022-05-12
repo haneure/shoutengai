@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\Admin;
+namespace App\Http\Livewire\User;
 
 use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
-class AdminOrderDetailsComponent extends Component
+class UserOrderDetailsComponent extends Component
 {
     public $order_id;
 
@@ -37,8 +38,8 @@ class AdminOrderDetailsComponent extends Component
 
     public function render()
     {
-        $order = Order::find($this->order_id);
-        //var_dump($order->transaction->status);
+        $order = Order::where('user_id', Auth::user()->id)->where('id', $this->order_id)->first();
+
         $order_status = '<span class="badge badge-warning">Ordered</span>';
         $transaction_status = '<span class="badge badge-warning">Pending</span>';
 
@@ -49,6 +50,6 @@ class AdminOrderDetailsComponent extends Component
             $transaction_status = '<span class="badge badge-success">COD</span>';
         }
 
-        return view('livewire.admin.admin-order-details-component', ['order'=>$order, 'order_status'=>$order_status, 'transaction_status'=>$transaction_status])->layout('layouts.base');
+        return view('livewire.user.user-order-details-component', ['order'=>$order, 'order_status'=>$order_status, 'transaction_status'=>$transaction_status])->layout('layouts.base');
     }
 }
