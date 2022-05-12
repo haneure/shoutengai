@@ -44,7 +44,8 @@
                             <ul>
                                 <li class="menu-item">
                                     <a title="Hotline: (+123) 456 789" href="#"><span
-                                            class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+                                            class="icon label-before fa fa-mobile"></span>Customer Service: (+62) 123
+                                        1234 1234</a>
                                 </li>
                             </ul>
                         </div>
@@ -148,7 +149,7 @@
 
                             <div class="wrap-logo-top left-section">
                                 <a href="index.html" class="link-to-home"><img
-                                        src="{{ asset('assets/images/logo-top-1.png') }}" alt="mercado"></a>
+                                        src="{{ asset('assets/images/shoutengai-logo.png') }}" alt="mercado"></a>
                             </div>
 
                             @livewire('header-search-component')
@@ -279,7 +280,7 @@
                 </div>
                 <!--End function info-->
 
-                <div class="main-footer-content">
+                {{-- <div class="main-footer-content">
 
                     <div class="container">
 
@@ -539,7 +540,7 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </footer>
 
