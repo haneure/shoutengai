@@ -13,7 +13,7 @@
             <div class="wrap-iten-in-cart">
                 @if (Session::has('success'))
                     <div class="alert alert-success">
-                        {{ Session::get('success') }} <strong>Successfully</strong>
+                        {{ Session::get('success') }} <strong>successfully</strong>
                     </div>
                 @endif
                 @if (Cart::count() > 0)
@@ -49,7 +49,8 @@
                                     <p class="price">${{ $item->subtotal }}</p>
                                 </div>
                                 <div class="delete">
-                                    <a href="#" class="btn btn-delete" title="">
+                                    <a href="#" wire:click.prevent="destroy(`{{ $item->rowId }}`)"
+                                        class="btn btn-delete" title="">
                                         <span>Delete from your cart</span>
                                         <i class="fa fa-times-circle" aria-hidden="true"></i>
                                     </a>
@@ -63,6 +64,10 @@
             </div>
 
             <div class="summary">
+                <div class="checkout-info">
+                    <a class="btn btn-checkout" href="#" wire:click.prevent="destroyAll()">Clear Shopping Cart</a>
+                    {{-- <a class="btn btn-checkout" href="#">Update Shopping Cart</a> --}}
+                </div>
                 <div class="order-summary">
                     <h4 class="title-box">Order Summary</h4>
                     <p class="summary-info"><span class="title">Subtotal</span><b
@@ -82,10 +87,6 @@
                     <a class="btn btn-checkout" href="checkout.html">Check out</a>
                     <a class="link-to-shop" href="shop.html">Continue Shopping<i class="fa fa-arrow-circle-right"
                             aria-hidden="true"></i></a>
-                </div>
-                <div class="update-clear">
-                    <a class="btn btn-clear" href="#">Clear Shopping Cart</a>
-                    <a class="btn btn-update" href="#">Update Shopping Cart</a>
                 </div>
             </div>
 
