@@ -16,9 +16,9 @@ class UserOrderDetailsComponent extends Component
 
     public function renderOrderStatus($order) {
         if($order->status == 'delivered') {
-            return '<span class="badge badge-success">Success</span>';
-        } else if($order->status == 'canceled') {
-            return '<span class="badge badge-danger">Failed</span>';
+            return '<span class="badge badge-success">Delivered</span>';
+        } else if($order->status == 'cancelled') {
+            return '<span class="badge badge-danger">Cancelled</span>';
         } else if($order->status == 'ordered') {
             return '<span class="badge badge-warning">Pending</span>';
         }
