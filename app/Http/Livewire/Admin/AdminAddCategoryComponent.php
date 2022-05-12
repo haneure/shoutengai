@@ -39,16 +39,11 @@ class AdminAddCategoryComponent extends Component
             $sub_category->category_id = $this->category_id;
             $sub_category->save();
         } else {
-            $sub_category = new Subcategory();
-            $sub_category->name = $this->name;
-            $sub_category->slug = $this->slug;
-            $sub_category->save();
+            $category = new Category();
+            $category->name = $this->name;
+            $category->slug = $this->slug;
+            $category->save();
         }
-
-        $category = new Category();
-        $category->name = $this->name;
-        $category->slug = $this->slug;
-        $category->save();
         session()->flash('message', 'Category added successfully!');
     }
 

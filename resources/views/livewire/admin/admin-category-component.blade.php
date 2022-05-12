@@ -51,7 +51,9 @@
                                         <td>
                                             <ul class="sub-category-list">
                                                 @foreach ($category->subCategories as $sub_category)
-                                                    <li><i class="fa fa-caret-right">{{ $sub_category->name }}</i>
+                                                    <li><i class="fa fa-caret-right">{{ $sub_category->name }} <a
+                                                                href="{{ route('admin.editcategory', ['category_slug' => $category->slug, 'sub_category_slug' => $sub_category->slug]) }}"><i
+                                                                    class="fa fa-edit"></i></a></i>
                                                     </li>
                                                 @endforeach
                                             </ul>
