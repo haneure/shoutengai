@@ -8,6 +8,10 @@
             display: block !important;
         }
 
+        .sub-category-list {
+            list-style: none;
+        }
+
     </style>
     <div class="container" style="padding:30px 0;">
         <div class="row">
@@ -34,6 +38,7 @@
                                     <th>ID</th>
                                     <th>Category Name</th>
                                     <th>Slug</th>
+                                    <th>Sub Category</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -43,6 +48,14 @@
                                         <td>{{ $category->id }}</td>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug }}</td>
+                                        <td>
+                                            <ul class="sub-category-list">
+                                                @foreach ($category->subCategories as $sub_category)
+                                                    <li><i class="fa fa-caret-right">{{ $sub_category->name }}</i>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </td>
                                         <td>
                                             <a href="{{ route('admin.editcategory', [$category->slug]) }}"><i
                                                     class="fa fa-edit fa-2x"></i></a>
