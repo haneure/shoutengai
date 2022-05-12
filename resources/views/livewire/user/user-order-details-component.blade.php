@@ -30,7 +30,7 @@
                                 </h3>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('admin.orders') }}" class="btn btn-success pull-right">All
+                                <a href="{{ route('user.orders') }}" class="btn btn-success pull-right">My
                                     Orders</a>
                             </div>
                         </div>
