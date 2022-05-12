@@ -588,6 +588,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.0/nouislider.min.js"
                 integrity="sha512-1mDhG//LAjM3pLXCJyaA+4c+h5qmMoTc7IuJyuNNPaakrWT9rVTxICK4tIizf7YwJsXgDC2JP74PGCc7qxLAHw=="
                 crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdn.tiny.cloud/1/5k5dl1v44wx6b4rv7c0mojta4mebydfwcl1236emxxgx98xx/tinymce/5/tinymce.min.js"
+                referrerpolicy="origin"></script>
         @livewireScripts
 
         @stack('scripts')
