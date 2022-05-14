@@ -154,7 +154,7 @@
                                         <ul class="sub-cate">
                                             @foreach ($category->subCategories as $subCategory)
                                                 <li class="category-item">
-                                                    <a href="{{ route('product.category', ['category_slug' => $subCategory->slug]) }}"
+                                                    <a href="{{ route('product.category', ['category_slug' => $category->slug, 'sub_category_slug' => $subCategory->slug]) }}"
                                                         class="cat-link"><i class="fa fa-circle fa-2xs"
                                                             style="margin-right:5px;"></i>{{ $subCategory->name }}</a>
                                                 </li>
