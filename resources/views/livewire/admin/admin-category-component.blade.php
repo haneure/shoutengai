@@ -12,6 +12,16 @@
             list-style: none;
         }
 
+        .sub-category-list li {
+            line-height: 33px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .slink i {
+            font-size: 16px;
+            margin-left: 12px;
+        }
+
     </style>
     <div class="container" style="padding:30px 0;">
         <div class="row">
@@ -51,9 +61,17 @@
                                         <td>
                                             <ul class="sub-category-list">
                                                 @foreach ($category->subCategories as $sub_category)
-                                                    <li><i class="fa fa-caret-right">{{ $sub_category->name }} <a
+                                                    <li><i>{{ $sub_category->name }}
+                                                            <a
                                                                 href="{{ route('admin.editcategory', ['category_slug' => $category->slug, 'sub_category_slug' => $sub_category->slug]) }}"><i
-                                                                    class="fa fa-edit"></i></a></i>
+                                                                    class="fa fa-edit slink"></i>
+                                                            </a>
+                                                            <a href="#"
+                                                                onclick="confirm('Are you sure you want to delete this sub category?') || event.stopImmediatePropagation()"
+                                                                wire:click.prevent="deleteSubCategory({{ $sub_category->id }})"><i
+                                                                    class="fa fa-times text-danger slink"></i>
+                                                            </a>
+                                                        </i>
                                                     </li>
                                                 @endforeach
                                             </ul>
