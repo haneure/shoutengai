@@ -1,0 +1,5 @@
+Shoutengai 000Webhost Database
+dbname: id18939753_shoutengaidb
+dbuser: id18939753_haneure
+dbhost: localhost
+dbpassword: 7Kt6sSiHAMRNGl\x
