@@ -7,6 +7,8 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Cart;
 use App\Models\Category;
+use App\Models\Order;
+use App\Models\OrderItem;
 use Illuminate\Support\Facades\Auth;
 
 class ShopComponent extends Component
@@ -24,7 +26,7 @@ class ShopComponent extends Component
         $this->pagesize = 12;
 
         $this->min_price = 1;
-        $this->max_price = 1000;
+        $this->max_price = 10000;
     }
 
     public function store($product_id, $product_name, $product_price)
