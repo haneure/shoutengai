@@ -9,8 +9,7 @@
                                 <h3 class="shop-title" style="display:inline;">Edit Coupon</h3>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('admin.coupons') }}" class="btn btn-success pull-right">All
-                                    Coupon</a>
+                                <a href="{{ route('admin.coupons') }}" class="btn btn-success pull-right">Back</a>
                             </div>
                         </div>
                     </div>

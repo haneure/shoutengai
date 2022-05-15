@@ -9,8 +9,7 @@
                                 <h3 class="shop-title" style="display:inline;">Edit Slide</h3>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('admin.homeslider') }}" class="btn btn-success pull-right">All
-                                    Sliders</a>
+                                <a href="{{ route('admin.homeslider') }}" class="btn btn-success pull-right">Back</a>
                             </div>
                         </div>
                     </div>

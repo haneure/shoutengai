@@ -10,10 +10,10 @@
                     <div class="item-slide">
                         <img src=" {{ asset('assets/images/sliders') }}/{{ $slide->image }}" alt=""
                             class="img-slide">
-                        <div class="slide-info slide-1">
-                            <h2 class="f-title"><b>{{ $slide->title }}</b></h2>
-                            <span class="subtitle">{{ $slide->subtitle }}</span>
-                            <p class="sale-info">Only price: <span
+                        <div class="slide-info slide-3">
+                            <h2 class="f-title"><b style="color: white !important;">{{ $slide->title }}</b></h2>
+                            <span class="subtitle" style="color: white !important;">{{ $slide->subtitle }}</span>
+                            <p class="sale-info" style="color: white !important;">Only <span
                                     class="price">${{ $slide->price }}</span></p>
                             <a href="{{ $slide->link }}" class="btn-link">Shop Now</a>
                         </div>

@@ -145,7 +145,7 @@
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Contact Message"
-                                                            href="{{ route('admin.contact') }}">Contact Message</a>
+                                                            href="{{ route('admin.contact') }}">Feedback</a>
                                                     </li>
                                                     <li class="menu-item">
                                                         <a title="Settings"
