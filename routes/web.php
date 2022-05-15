@@ -84,6 +84,7 @@ Route::get('/contact-us', ContactComponent::class)->name('contact');
 // });
 
 //For User or Customer
+//For User or Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/user/dashboard', UserDashboardComponent::class)->name('user.dashboard');
     Route::get('/user/orders', UserOrdersComponent::class)->name('user.orders');
