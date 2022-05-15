@@ -61,7 +61,7 @@
                         <div class="topbar-menu left-menu">
                             <ul>
                                 <li class="menu-item">
-                                    <a title="Hotline: (+123) 456 789" href="#"><span
+                                    <a title="Hotline: (+123) 456 789" href="{{ route('contact') }}"><span
                                             class="icon label-before fa fa-mobile"></span>Customer Service: (+62) 123
                                         1234 1234</a>
                                 </li>
@@ -69,7 +69,7 @@
                         </div>
                         <div class="topbar-menu right-menu">
                             <ul>
-                                <li class="menu-item lang-menu menu-item-has-children parent">
+                                {{-- <li class="menu-item lang-menu menu-item-has-children parent">
                                     <a title="English" href="#"><span class="img label-before"><img
                                                 src="assets/images/lang-en.png" alt="lang-en"></span>English<i
                                             class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -102,7 +102,7 @@
                                             <a title="Dollar (USD)" href="#">Dollar (USD)</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 @if (Route::has('login'))
                                     @auth
                                         @if (Auth::user()->user_type === 'admin')
