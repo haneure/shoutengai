@@ -30,6 +30,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => 'admin123', // password
             'remember_token' => Str::random(10),
+            'user_type' => 'admin'
         ];
     }
 
