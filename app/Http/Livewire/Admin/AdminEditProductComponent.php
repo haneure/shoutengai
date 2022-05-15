@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Subcategory;
 use Livewire\Component;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
@@ -26,6 +27,7 @@ class AdminEditProductComponent extends Component
     public $category_id;
     public $newimage;
     public $product_id;
+    public $sub_category_id;
 
     public $images;
     public $newimages;
@@ -45,7 +47,8 @@ class AdminEditProductComponent extends Component
         $this->quantity = $product-> quantity;
         $this->image = $product-> image;
         $this->images = explode(',', $product->images);
-        $this->category_id = $product-> category_id;
+        $this->category_id = $product->category_id;
+        $this->sub_category_id = $product->subcategory_id;
         $this->product_id = $product->id;
     }
 
@@ -60,7 +63,7 @@ class AdminEditProductComponent extends Component
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
-            'sale_price' => 'numeric',
+            'sale_price' => 'nullable|numeric',
             'SKU' => 'required',
             'stock_status' => 'required',
             'quantity' => 'required|numeric',
@@ -81,7 +84,7 @@ class AdminEditProductComponent extends Component
             'short_description' => 'required',
             'description' => 'required',
             'regular_price' => 'required|numeric',
-            'sale_price' => 'numeric',
+            'sale_price' => 'nullable|numeric',
             'SKU' => 'required',
             'stock_status' => 'required',
             'quantity' => 'required|numeric',
@@ -134,13 +137,21 @@ class AdminEditProductComponent extends Component
         }
 
         $product->category_id = $this->category_id;
+        if($this->sub_category_id){
+            $product->subcategory_id = $this->sub_category_id;
+        }
         $product->save();
         session()->flash('message', 'Product has ben updated successfully');
+    }
+
+    public function changeSubcategory() {
+        $this->sub_category_id = 0;
     }
 
     public function render()
     {
         $categories = Category::all();
-        return view('livewire.admin.admin-edit-product-component', ['categories'=>$categories])->layout('layouts.base');
+        $sub_categories = Subcategory::where('category_id', $this->category_id)->get();
+        return view('livewire.admin.admin-edit-product-component', ['categories'=>$categories, 'sub_categories'=>$sub_categories])->layout('layouts.base');
     }
 }
