@@ -8,7 +8,7 @@
                 data-dots="false">
                 @foreach ($sliders as $slide)
                     <div class="item-slide">
-                        <img src="{{ asset('assets/images/sliders') }}/{{ $slide->image }}" alt=""
+                        <img src=" {{ asset('assets/images/sliders') }}/{{ $slide->image }}" alt=""
                             class="img-slide">
                         <div class="slide-info slide-1">
                             <h2 class="f-title"><b>{{ $slide->title }}</b></h2>
@@ -23,43 +23,24 @@
         </div>
 
 
-        {{-- <div class="item-slide">
-                    <img src="{{ asset('assets/images/main-slider-1-2.jpg') }}" alt="" class="img-slide">
-                    <div class="slide-info slide-2">
-                        <h2 class="f-title">Extra 25% Off</h2>
-                        <span class="f-subtitle">On online payments</span>
-                        <p class="discount-code">Use Code: #FA6868</p>
-                        <h4 class="s-title">Get Free</h4>
-                        <p class="s-subtitle">TRansparent Bra Straps</p>
-                    </div>
-                </div>
-                <div class="item-slide">
-                    <img src="{{ asset('assets/images/main-slider-1-3.jpg') }}" alt="" class="img-slide">
-                    <div class="slide-info slide-3">
-                        <h2 class="f-title">Great Range of <b>Exclusive Furniture Packages</b></h2>
-                        <span class="f-subtitle">Exclusive Furniture Packages to Suit every need.</span>
-                        <p class="sale-info">Stating at: <b class="price">$225.00</b></p>
-                        <a href="#" class="btn-link">Shop Now</a>
-                    </div>
-                </div> --}}
     </div>
     </div>
 
     <!--BANNER-->
-    <div class="wrap-banner style-twin-default">
+    {{-- <div class="wrap-banner style-twin-default">
         <div class="banner-item">
             <a href="#" class="link-banner banner-effect-1">
-                <figure><img src="{{ asset('assets/images/home-1-banner-1.jpg') }}" alt="" width="580" height="190">
+                <figure><img src="{{ asset('assets/images/home-1-banner-1.jpg') }}" alt="" width="960" height="200">
                 </figure>
             </a>
         </div>
         <div class="banner-item">
             <a href="#" class="link-banner banner-effect-1">
-                <figure><img src="{{ asset('assets/images/home-1-banner-2.jpg') }}" alt="" width="580" height="190">
+                <figure><img src="{{ asset('assets/images/home-1-banner-2.jpg') }}" alt="" width="960" height="200">
                 </figure>
             </a>
         </div>
-    </div>
+    </div> --}}
 
     <!--On Sale-->
     @if ($saleproducts->count() > 0 && $sale->status == 1 && $sale->sale_date > Carbon\Carbon::now())
@@ -77,7 +58,7 @@
                             <a href="{{ route('product.details', ['slug' => $saleproduct->slug]) }}"
                                 title="{{ $saleproduct->name }}">
                                 <figure><img src="{{ asset('assets/images/products') }}/{{ $saleproduct->image }}"
-                                        width="800" height="800" alt="">
+                                        width="1200" height="1200" alt="">
                                 </figure>
                             </a>
                             <div class="group-flash">
@@ -106,8 +87,8 @@
         <h3 class="title-box">Latest Products</h3>
         <div class="wrap-top-banner">
             <a href="#" class="link-banner banner-effect-2">
-                <figure><img src="{{ asset('assets/images/digital-electronic-banner.jpg') }}" width="1170"
-                        height="240" alt="">
+                <figure><img src="{{ asset('assets/images/ads-banner-nvidia.jpg') }}" width="1920" height="240"
+                        alt="">
                 </figure>
             </a>
         </div>
@@ -174,7 +155,7 @@
         <h3 class="title-box">Product Categories</h3>
         <div class="wrap-top-banner">
             <a href="#" class="link-banner banner-effect-2">
-                <figure><img src="{{ asset('assets/images/fashion-accesories-banner.jpg') }}" width="1170"
+                <figure><img src="{{ asset('assets/images/fashion-accesories-banner.jpg') }}" width="1920"
                         height="240" alt="">
                 </figure>
             </a>
